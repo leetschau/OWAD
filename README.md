@@ -20,9 +20,9 @@ In this context, **OWAD** is a novel framework to *detect*, *explain* and *adapt
 
 # Environment Setup
 
-Use the following command to install the packages:
+Create and activate a virtualenv with Python 3.8.11 and run:
 
-> pip install -r requirement.txt
+    pip install -r requirement.txt
 
 # Toy Example
 

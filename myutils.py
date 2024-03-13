@@ -1,4 +1,7 @@
 import torch
+import torch.cuda
+import torch.backends
+import torch.backends.cudnn
 import random
 import yaml
 import os
@@ -11,7 +14,7 @@ CONFIG_FILE = os.path.join(PROJECT_FILE, 'configs.yml')
 
 def get_params(param_type):
     f = open(CONFIG_FILE)
-    params = yaml.load(f)
+    params = yaml.safe_load(f)
     return params[param_type]
 
 
@@ -63,7 +66,7 @@ def multi_fpr_tpr(y_prob, y_true, thres_max, thres_min=0, split = 1000, is_P_mal
 def multi_metrics(probs, 
                   labels,
                   thres_max=1.,
-                  thres_min=0.,
+                  thres_min=0,
                   split=1000,
                   is_P_mal=True,
                   condition=None,
